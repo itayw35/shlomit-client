@@ -133,6 +133,7 @@ function Home() {
               ref={nameRef}
               id="name-field"
               type="text"
+              className="input-field"
               required
               autoFocus
             />
@@ -144,6 +145,7 @@ function Home() {
             <input
               id="phone-field"
               type="number"
+              className="input-field"
               onChange={validatePhone}
               ref={phoneRef}
               required
@@ -161,6 +163,7 @@ function Home() {
                 dateFormat={"dd/MM/yyyy"}
                 highlightDates={availableDates}
                 includeDates={availableDates}
+                className="input-field"
               />
             </div>
           </div>
