@@ -1,0 +1,52 @@
+
+#main-container{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+}
+#inner-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+
+#submit-button{
+    width: 60px;
+    height: 40px;
+    border-radius: 100px;
+    background-color:darkturquoise;
+    box-shadow: 2px 2px;
+
+}
+#submit-button:hover{
+    opacity: 0.8;
+}
+#form-flex{
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+    width:30vw
+}
+
+.input-field{
+    display: flex;
+    justify-content: space-between;
+}
+.input-field label{
+    width: 150px;
+    text-align: start;
+}
+.input-field input{
+    height: 20px;
+    width: 100px;
+}
+#date-row{
+    display: flex;
+    justify-content: space-around;
+}
+.red{
+    color: red;
+}    
