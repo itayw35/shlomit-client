@@ -70,11 +70,14 @@ function Home() {
     const hourArray = hour.split(":");
     chosenDate.setHours(hourArray[0], hourArray[1]);
     axios
-      .post("https://shlomit-00e660508931.herokuapp.com/appointments/set-appointment", {
-        name: name,
-        phone: phone,
-        date: chosenDate,
-      })
+      .post(
+        "https://shlomit-00e660508931.herokuapp.com/appointments/set-appointment",
+        {
+          name: name,
+          phone: phone,
+          date: chosenDate,
+        }
+      )
       .then((res) => {
         console.log(res.data);
         alertRef.current.innerText = res.data;
@@ -89,10 +92,15 @@ function Home() {
   };
   useEffect(() => {
     axios
-      .get("https://shlomit-00e660508931.herokuapp.com/appointments/get-appointments")
+      .get(
+        "https://shlomit-00e660508931.herokuapp.com/appointments/get-appointments"
+      )
       .then((res) => {
         console.log(res.data);
-        setOccupiedAppointments(res.data);
+        const dates = res.data.filter((date) => {
+          return date.status !== "cancelled";
+        });
+        setOccupiedAppointments(dates);
       });
   }, []);
   useEffect(() => {
@@ -144,7 +152,7 @@ function Home() {
             </label>
             <input
               id="phone-field"
-              type="number"
+              type="tel"
               className="input-field"
               onChange={validatePhone}
               ref={phoneRef}
