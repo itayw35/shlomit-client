@@ -18,6 +18,7 @@ function Home() {
   const [isValidPhone, setIsValidPhone] = useState(false);
   const nameRef = useRef();
   const phoneRef = useRef();
+  const emailRef = useRef();
   const hourRef = useRef();
   const alertRef = useRef();
   const generateAvailableDates = (startDate, endDate) => {
@@ -66,6 +67,7 @@ function Home() {
     e.preventDefault();
     const name = nameRef.current.value;
     const phone = phoneRef.current.value;
+    const email = emailRef.current.value;
     const hour = hourRef.current.value;
     const hourArray = hour.split(":");
     chosenDate.setHours(hourArray[0], hourArray[1]);
@@ -75,6 +77,7 @@ function Home() {
         {
           name: name,
           phone: phone,
+          email: email,
           date: chosenDate,
         }
       )
@@ -159,6 +162,18 @@ function Home() {
               required
             />
           </div>
+          <div className="input-field">
+            <label htmlFor="email-field">
+              <span className="red">*</span>מייל{" "}
+            </label>
+            <input
+              id="email-field"
+              type="email"
+              className="input-field"
+              ref={emailRef}
+              required
+            />
+          </div>
           <div id="date-row">
             <div className="input-field">
               <label htmlFor="date-selection">
@@ -189,7 +204,7 @@ function Home() {
           <span className="red" ref={alertRef}></span>
           <button
             id="submit-button"
-            disabled={!isValidPhone || !nameRef.current.value || !chosenDate}
+            disabled={!isValidPhone || !nameRef.current.value || !emailRef.current.value || !chosenDate}
             onClick={submit}
             style={{
               cursor:
